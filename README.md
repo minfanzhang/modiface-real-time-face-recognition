@@ -63,7 +63,13 @@ fps when detecting a pre-recorded video: 15.83
 
 PS: I planned to use GPU to do another comparison to see how well GPU can helpn improving the process speed. The sad fact is that all GPU-available platforms I have access to are kind of "virtual" and fail to support these visualization functions (like camera usage) in this project. Would be willing to do this GPU comparison if I could be granted a temporary access to a valid GPU-equipped device. I included code that switchs the device to cuda when the GPU is available, can look at the code for details, thank you.
 
-## Video
+## Face Detection Demo Video (using BlazeFace as an example)
+
+Face Detection using my camera directly to capture my face:
 
 ![Output sample](https://github.com/minfanzhang/real-time-face-recognition/blob/main/face-recognition-demo-camera.gif)
+
+Face Detection using pre-recorded video to capture faces in the video:
+
+![Output sample](https://github.com/minfanzhang/real-time-face-recognition/blob/main/face-recognition-demo-prerecorded-video.gif)
 
