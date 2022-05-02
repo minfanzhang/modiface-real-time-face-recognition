@@ -89,6 +89,7 @@ class landmarkFaceDetector():
 		# we use a GPU to speed up the inference if it is available
 		self.device = 'cpu'
 		if torch.cuda.is_available():
+			print("cuda is available!")
 			self.device = 'cuda'
 
 		# log the time it takes to load the model fa
