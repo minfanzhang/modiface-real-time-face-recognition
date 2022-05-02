@@ -65,5 +65,5 @@ PS: I planned to use GPU to do another comparison to see how well GPU can helpn 
 
 ## Video
 
-
+![Output sample](https://github.com/minfanzhang/real-time-face-recognition/blob/main/face-recognition-demo-camera.gif)
 
