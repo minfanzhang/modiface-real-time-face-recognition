@@ -4,11 +4,11 @@
 
 This project uses three face detection models (Python) to track people's face in a real-time manner:
 
-S3FD Face Detector: default detector of face-alignment to detect face points/landmarks, which is slow.
+### `S3FD Face Detector`: default detector of face-alignment to detect face points/landmarks, which is slow.
 
-BlazeFace: improved from S3FD Face Detector with a faster detection speed.
+### `BlazeFace`: improved from S3FD Face Detector with a faster detection speed.
 
-Naive Face Detector: not required in the handout but I included this since this is quite efficient. It uses the cascade classifier from OpenCV which generates boxes instead of points around faces with a much faster speed than the previous two models.
+### `Naive Face Detector`: not required in the handout but I included this since this is quite efficient. It uses the cascade classifier from OpenCV which generates boxes instead of points around faces with a much faster speed than the previous two models.
 
 ### `Number of briefcases to choose from:`
 
