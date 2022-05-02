@@ -24,7 +24,7 @@ In the root directory, use 'python3 face_detection.py' (or 'python face_detectio
 
 And the optional parameters are as follows:
 
---face_detector_type: choose which of the three models (S3FD, BlazeFace, Naive) to use, available options are 'sfd', 'blazeface' and 'naive', default value is 'blazeface'
+--face_detector_type: choose which of the three models (S3FD, BlazeFace, Naive) to use, available options in command line are 'sfd', 'blazeface' and 'naive', default value is 'blazeface'
 
 --pre_recorded_video_for_detection: choose whether we want to detect in the pre-recorded video or using the camera directly. Do not provide this parameter if you want to use the camera directly, and provide the location of the video if you want to detect faces in a video (try '--pre_recorded_video_for_detection pre_recorded_video_for_test.mp4' to see how this works as an example!). The default value is None.
 
