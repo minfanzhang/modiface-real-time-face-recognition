@@ -7,72 +7,6 @@ import matplotlib.pyplot as plt
 import argparse
 import torch
 
-# naive face detector using boxes only to circle the faces. Less accurate but quite fast
-class naiveFaceDetector():
-	def __init__(self, preRecordedVideo=None, cascPath="haarcascade_frontalface_default.xml", maxNumFrames=100):
-		# check if we want to do the face recognition on a pre-recorded video, or using our camera directly.
-		self.preRecordedVideo = preRecordedVideo
-
-		# initialize the cascade classifier using the provided cascade file path
-		self.cascPath = cascPath
-		# log the time it takes to load the model faceCascade
-		t_start = time.time()
-		self.faceCascade = cv2.CascadeClassifier(self.cascPath)
-		print(f'Naive detector: time to load: {time.time() - t_start} seconds')
-
-		# used to log the average fps
-		self.frames_per_second = []
-
-		# max number of frames to detect before we stop
-		self.maxNumFrames = maxNumFrames
-
-	def performFaceDetection(self):
-		# handle the case when the face detection is performed using the camera directly
-		if not self.preRecordedVideo:
-			# use the camera to capture the frames
-			self.videoCapture = cv2.VideoCapture(0)
-		else:
-			# use the give pre-recorded video to capture the frames
-			self.videoCapture = cv2.VideoCapture(self.preRecordedVideo)
-
-		for i in range(self.maxNumFrames):
-
-			# capture frame-by-frame
-			ret, frame = self.videoCapture.read()
-
-			# stop if we fail to capture a frame
-			if not ret:
-				break
-
-			# convert the frame to the form suitable for OpenCV
-			frameConverted = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-			# Generate the face detections and log the time it takes
-			t_start = time.time()
-			faces = self.faceCascade.detectMultiScale(
-			    frameConverted,
-			    scaleFactor=1.1,
-			    minNeighbors=5,
-			    minSize=(30, 30)
-			)
-			self.frames_per_second.append(1.0 / (time.time() - t_start))
-
-			# draw the face recognition rectangles on the frame
-			for (x, y, w, h) in faces:
-				cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-
-			# show the frame with the detections.
-			cv2.imshow('Video', frame)
-
-			# stop when the video is over or we stop it from keyboard
-			if cv2.waitKey(1) & 0xFF == ord('q'):
-				break
-
-		# stop the capturing
-		print("Average fps is: ", round(sum(self.frames_per_second) / len(self.frames_per_second), 2))
-		self.videoCapture.release()
-		cv2.destroyAllWindows()
-
 # face detector assigning points and landmarks on the faces. More accurate but slower than the naive approach
 class landmarkFaceDetector():
 	def __init__(self, preRecordedVideo=None, faceDetectorType='blazeface', maxNumFrames=20):
@@ -147,6 +81,73 @@ class landmarkFaceDetector():
 		print("Average fps is: ", round(sum(self.frames_per_second) / len(self.frames_per_second), 2))
 		self.videoCapture.release()
 		cv2.destroyAllWindows()
+
+# naive face detector using boxes only to circle the faces. Less accurate but quite fast
+class naiveFaceDetector():
+	def __init__(self, preRecordedVideo=None, cascPath="haarcascade_frontalface_default.xml", maxNumFrames=100):
+		# check if we want to do the face recognition on a pre-recorded video, or using our camera directly.
+		self.preRecordedVideo = preRecordedVideo
+
+		# initialize the cascade classifier using the provided cascade file path
+		self.cascPath = cascPath
+		# log the time it takes to load the model faceCascade
+		t_start = time.time()
+		self.faceCascade = cv2.CascadeClassifier(self.cascPath)
+		print(f'Naive detector: time to load: {time.time() - t_start} seconds')
+
+		# used to log the average fps
+		self.frames_per_second = []
+
+		# max number of frames to detect before we stop
+		self.maxNumFrames = maxNumFrames
+
+	def performFaceDetection(self):
+		# handle the case when the face detection is performed using the camera directly
+		if not self.preRecordedVideo:
+			# use the camera to capture the frames
+			self.videoCapture = cv2.VideoCapture(0)
+		else:
+			# use the give pre-recorded video to capture the frames
+			self.videoCapture = cv2.VideoCapture(self.preRecordedVideo)
+
+		for i in range(self.maxNumFrames):
+
+			# capture frame-by-frame
+			ret, frame = self.videoCapture.read()
+
+			# stop if we fail to capture a frame
+			if not ret:
+				break
+
+			# convert the frame to the form suitable for OpenCV
+			frameConverted = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+			# Generate the face detections and log the time it takes
+			t_start = time.time()
+			faces = self.faceCascade.detectMultiScale(
+			    frameConverted,
+			    scaleFactor=1.1,
+			    minNeighbors=5,
+			    minSize=(30, 30)
+			)
+			self.frames_per_second.append(1.0 / (time.time() - t_start))
+
+			# draw the face recognition rectangles on the frame
+			for (x, y, w, h) in faces:
+				cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+
+			# show the frame with the detections.
+			cv2.imshow('Video', frame)
+
+			# stop when the video is over or we stop it from keyboard
+			if cv2.waitKey(1) & 0xFF == ord('q'):
+				break
+
+		# stop the capturing
+		print("Average fps is: ", round(sum(self.frames_per_second) / len(self.frames_per_second), 2))
+		self.videoCapture.release()
+		cv2.destroyAllWindows()
+
 
 if __name__ == "__main__":
 	# parse in the arguments
