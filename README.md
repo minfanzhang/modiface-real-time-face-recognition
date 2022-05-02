@@ -33,6 +33,8 @@ And the optional parameters are as follows:
 
 It is recommended to use the default settings first to get yourself familiar with the app!
 
+(The program is a bit slow in the beginning seconds but it is working all right, thanks.)
+
 (You can also press 'q' on the keyboard to quit the program manually, but this can be slow for S3FD sometimes, sorry about the inconvenience)
 
 
