@@ -41,6 +41,8 @@ It is recommended to use the default settings first to get yourself familiar wit
 
 ## Performance Analysis:
 
+(All the performance information below is captured through the program printout in the command line console)
+
 Model #1 - S3FD:
 
 Model Load Time: 0.64 seconds
