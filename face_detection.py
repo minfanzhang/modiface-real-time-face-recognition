@@ -5,6 +5,7 @@ import numpy as np
 import face_alignment
 import matplotlib.pyplot as plt
 import argparse
+import torch
 
 # naive face detector using boxes only to circle the faces. Less accurate but quite fast
 class naiveFaceDetector():
@@ -85,9 +86,14 @@ class landmarkFaceDetector():
 		# used to log the average fps
 		self.frames_per_second = []
 
+		# we use a GPU to speed up the inference if it is available
+		self.device = 'cpu'
+		if torch.cuda.is_available():
+			self.device = 'cuda'
+
 		# log the time it takes to load the model fa
 		t_start = time.time()
-		self.fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, device='cpu', face_detector=self.faceDetectorType)
+		self.fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, device=self.device, face_detector=self.faceDetectorType)
 		print(f'{self.faceDetectorType}: time to load fa: {time.time() - t_start} seconds')
 
 		# max number of frames to detect before we stop
