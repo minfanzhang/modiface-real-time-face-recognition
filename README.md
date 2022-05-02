@@ -2,7 +2,7 @@
  
 ## Project Introduction
 
-This project uses three face detection models (Python) to track people's face in a real-time manner:
+### This project uses three face detection models (Python) to track people's face in a real-time manner:
 
 S3FD Face Detector: default detector of face-alignment to detect face points/landmarks, which is slow.
 
