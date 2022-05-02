@@ -19,7 +19,7 @@ Detection in Pre-recorded Videos: users provide pre-recorded videos and the syst
 
 ## How to Run the Project
 
-use 'python3 face_detection.py' (or 'python face_detection.py' if your python version is 3 by default) to run the project with the default settings.
+In the root directory, use 'python3 face_detection.py' (or 'python face_detection.py' if your python version is 3 by default) to run the project with the default settings.
 
 And the optional parameters are as follows:
 
@@ -31,11 +31,35 @@ And the optional parameters are as follows:
 
 --max_num_frames: maximum number of frames processed before we stop the program, can be adjusted based on how long you want to use the detector.
 
+It is recommended to use the default settings first to get yourself familiar with the app!
+
+(You can also press 'q' on the keyboard to quit the program manually, but this can be slow for S3FD sometimes, sorry about the inconvenience)
 
 
+## Performance Analysis:
 
+Model #1 - S3FD:
 
+Model Load Time: 0.64 seconds
 
+fps when detecting directly using the camera: 0.13
+fps when detecting a pre-recorded video: 0.21
+
+Model #2 - BlazeFace:
+
+Model Load Time: 0.49 seconds
+
+fps when detecting directly using the camera: 1.26
+fps when detecting a pre-recorded video: 1.28
+
+Model #3 - Naive Model:
+
+Model Load Time: 0.022 seconds
+
+fps when detecting directly using the camera: 19.38
+fps when detecting a pre-recorded video: 15.83
+
+PS: I planned to use GPU to do another comparison to see how well GPU can helpn improving the process speed. The sad fact is that all GPU-available platforms I have access to are kind of "virtual" and fail to support these visualization functions (like camera usage) in this project. Would be willing to do this GPU comparison if I could be granted a temporary access to a valid GPU-equipped device. I included code that switchs the device to cuda when the GPU is available, can look at the code for details, thank you.
 
 
 
