@@ -14,7 +14,31 @@ Naive Face Detector: not required in the handout but I included this since this 
 
 Direct Camera Detection: users turn on their cameras and the system captures the faces that appear in the camera in real time.
 
-Detection in Pre-recorded Videos: users provide pre-recorded videos and the system captures the faces in the video and render the predicitons in real time.
+Detection in Pre-recorded Videos: users provide pre-recorded videos and the system captures the faces in the video and render the predicitons in real time with the predicitons rendered on the screen.
+
+
+## How to Run the Project
+
+use 'python3 face_detection.py' (or 'python face_detection.py' if your python version is 3 by default) to run the project with the default settings.
+
+And the optional parameters are as follows:
+
+--face_detector_type: choose which of the three models (S3FD, BlazeFace, Naive) to use, available options are 'sfd', 'blazeface' and 'naive', default value is 'blazeface'
+
+--pre_recorded_video_for_detection: choose whether we want to detect in the pre-recorded video or using the camera directly. Do not provide this parameter if you want to use the camera directly, and provide the location of the video if you want to detect in a video (try '--pre_recorded_video_for_detection pre_recorded_video_for_test.mp4' to see how this works as an exmaple!). Default value is None.
+
+--casc_path: casc file for the naive model, I have set this up and you do not need to provide this usually.
+
+--max_num_frames: maximum number of frames processed before we stop the program, can be adjusted based on how long you want to use the detector.
+
+
+
+
+
+
+
+
+
 
 ### `Number of briefcases to choose from:`
 
