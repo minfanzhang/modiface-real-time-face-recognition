@@ -10,6 +10,12 @@ BlazeFace: improved from S3FD Face Detector with a faster detection speed.
 
 Naive Face Detector: not required in the handout but I included this since this is quite efficient. It uses the cascade classifier from OpenCV which generates boxes instead of points around faces with a much faster speed than the previous two models.
 
+### Each of the three models can detect face in two ways:
+
+Direct Camera Detection: users turn on their cameras and the system captures the faces that appear in the camera in real time.
+
+Detection in Pre-recorded Videos: users provide pre-recorded videos and the system captures the faces in the video and render the predicitons in real time.
+
 ### `Number of briefcases to choose from:`
 
 To choose how many briefcases a contestant will be choosing from (this will be 3 by default according to the requirement).
