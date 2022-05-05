@@ -95,6 +95,7 @@ fps when detecting directly using the camera: 19.38
 
 fps when detecting a pre-recorded video: 15.83
 
+<br />
 PS #1: Here, fps is calculated as the average fps in a reasonable time window when using the detector.
 
 PS #2: I planned to use GPU to do another comparison to see how well GPU can helpn improving the process speed. The sad fact is that all the GPU-available platforms I have access to are kind of "virtual" and fail to support these visualization functions (like camera usage) in this project. Would be willing to do this GPU comparison if I could be granted temporary access to a valid GPU-equipped device. I included code that switches the device to cuda when the GPU is available, can look at the code for details, thank you.
