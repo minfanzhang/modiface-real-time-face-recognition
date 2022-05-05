@@ -83,6 +83,7 @@ Model #2 - BlazeFace:
 
 	fps when detecting a pre-recorded video: 0.73
 
+<br />
 Model #3 - Naive Model:
 
 Model Load Time: 0.022 seconds
