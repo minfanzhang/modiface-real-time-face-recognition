@@ -26,7 +26,7 @@ class landmarkFaceDetector():
 			print("cuda is available!")
 			self.device = 'cuda'
 
-		# log the time it takes to load the model fa
+		# log the time it takes to load the model fa, using the given model type and parameters on 2D and 3D
 		t_start = time.time()
 		if use2D3D == "3D":
 			self.fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._3D, device=self.device, face_detector=self.faceDetectorType)
