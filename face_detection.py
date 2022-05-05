@@ -9,7 +9,7 @@ import torch
 
 # face detector assigning points and landmarks on the faces. More accurate but slower than the naive approach
 class landmarkFaceDetector():
-	def __init__(self, preRecordedVideo=None, faceDetectorType='blazeface', maxNumFrames=20):
+	def __init__(self, preRecordedVideo=None, faceDetectorType='blazeface', use2D3D="2D", maxNumFrames=20):
 		# check if we want to do the face recognition on a pre-recorded video, or using our camera directly.
 		self.preRecordedVideo = preRecordedVideo
 
@@ -28,7 +28,10 @@ class landmarkFaceDetector():
 
 		# log the time it takes to load the model fa
 		t_start = time.time()
-		self.fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, device=self.device, face_detector=self.faceDetectorType)
+		if use2D3D == "3D":
+			self.fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._3D, device=self.device, face_detector=self.faceDetectorType)
+		else:
+			self.fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, device=self.device, face_detector=self.faceDetectorType)
 		print(f'{self.faceDetectorType}: time to load fa: {time.time() - t_start} seconds')
 
 		# max number of frames to detect before we stop
@@ -154,6 +157,7 @@ if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
 	parser.add_argument("--face_detector_type", default="blazeface", help="the type of face detector we choose to use, default to Blaze")
 	parser.add_argument("--pre_recorded_video_for_detection", default=None, help="the type of face detector we choose to use, default to Blaze")
+	parser.add_argument("--use_2d_or_3d_detection", default="2D", help="whether we want to use 3D detection for the landmarks")
 	parser.add_argument("--casc_path", default="haarcascade_frontalface_default.xml", help="cascade file path")
 	parser.add_argument("--max_num_frames", type=int, default=20, help="max number of frames to detect before we quit")
 	args = parser.parse_args()
@@ -165,5 +169,6 @@ if __name__ == "__main__":
 	else:
 		faceDetector = landmarkFaceDetector(preRecordedVideo=args.pre_recorded_video_for_detection, 
 											faceDetectorType=args.face_detector_type,
+											use2D3D=args.use_2d_or_3d_detection,
 											maxNumFrames=args.max_num_frames)
 		faceDetector.performFaceDetection()

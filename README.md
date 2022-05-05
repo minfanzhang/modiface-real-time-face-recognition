@@ -47,19 +47,39 @@ Required Python libraries: OpenCV, numpy, face_alignment, matplotlib, PyTorch
 
 Model #1 - S3FD:
 
-Model Load Time: 0.64 seconds
+2D Version:
 
-fps when detecting directly using the camera: 0.13
+	Model Load Time: 0.64 seconds
 
-fps when detecting a pre-recorded video: 0.21
+	fps when detecting directly using the camera: 0.13
+
+	fps when detecting a pre-recorded video: 0.21
+
+3D version:
+
+	Model Load Time: 1,05 seconds
+
+	fps when detecting directly using the camera: 0.12
+
+	fps when detecting a pre-recorded video: 0.18
 
 Model #2 - BlazeFace:
 
-Model Load Time: 0.49 seconds
+2D Version:
 
-fps when detecting directly using the camera: 1.26
+	Model Load Time: 0.49 seconds
 
-fps when detecting a pre-recorded video: 1.28
+	fps when detecting directly using the camera: 1.26
+
+	fps when detecting a pre-recorded video: 1.28
+
+3D version:
+
+	Model Load Time: 0.83 seconds
+
+	fps when detecting directly using the camera: 0.73
+
+	fps when detecting a pre-recorded video: 0.73
 
 Model #3 - Naive Model:
 
