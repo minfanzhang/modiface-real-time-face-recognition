@@ -28,6 +28,8 @@ And the optional parameters are as follows:
 
 --pre_recorded_video_for_detection: choose whether we want to detect in the pre-recorded video or using the camera directly. Do not provide this parameter if you want to use the camera directly, and provide the location of the video if you want to detect faces in a video (try '--pre_recorded_video_for_detection pre_recorded_video_for_test.mp4' to see how this works as an example!). The default value is None.
 
+--use_2d_or_3d_detection: choose whether we use 2D or 3D model for landmark detection, available options in command line are '2D' and '3D'
+
 --casc_path: casc file for the naive model, I have set this up and you do not need to provide this usually.
 
 --max_num_frames: maximum number of frames processed before we stop the program, can be adjusted based on how long you want to use the detector.
