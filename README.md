@@ -90,7 +90,6 @@ Model #2 - BlazeFace:
 <br />
 Model #3 - Naive Model:
 
-<br />
 	Model Load Time: 0.022 seconds
 
 	fps when detecting directly using the camera: 19.38
