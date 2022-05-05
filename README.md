@@ -45,6 +45,7 @@ Required Python libraries: OpenCV, numpy, face_alignment, matplotlib, PyTorch
 
 (All the performance information below is captured through the program printout in the command line console)
 
+
 Model #1 - S3FD:
 
 2D Version:
@@ -62,6 +63,7 @@ Model #1 - S3FD:
 	fps when detecting directly using the camera: 0.12
 
 	fps when detecting a pre-recorded video: 0.18
+
 
 Model #2 - BlazeFace:
 
